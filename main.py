@@ -173,9 +173,8 @@ if __name__=='__main__':
         # Display Characters
         player.draw()
         bullet.draw()
-        if not gameover:
-            for enemy in enemies:
-                enemy.draw()
+        for enemy in enemies:
+            enemy.draw()
         score.show()
 
         # Enemy Kill
@@ -187,11 +186,7 @@ if __name__=='__main__':
         # Player-Enemy Collision
         for enemy in enemies:
             if enemy.x >= player.x-62 and enemy.x <= player.x+62 and enemy.y >= player.y-62 and enemy.y <= enemy.y+62:
-                game_over = True
-                break
-
-        if game_over:
-            GameOver().show()
+                running = False
 
         # Update all changes of while loop
         pygame.display.update()
